@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { BudgetItem } from '../shared/budget-item';
 import { MatDialog } from '@angular/material/dialog';
-import { EditItemModalComponent } from '../edit-item-modal/edit-item-modal.component';
+import { EditItemModalComponentComponent } from '../edit-item-modal/edit-item-modal.component';
 
 export interface UpdateEvent{
   old: BudgetItem;
@@ -21,8 +21,9 @@ export class BudgetItemListComponent implements OnInit {
   // Adding Outputs for Updates and Deletes
   @Output() delete: EventEmitter<BudgetItem> = new EventEmitter<BudgetItem>();
   @Output() update: EventEmitter<UpdateEvent> = new EventEmitter<UpdateEvent>();
+  //dialog: any;
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   onDelete(item: BudgetItem){
     this.delete.emit(item);
@@ -31,13 +32,13 @@ export class BudgetItemListComponent implements OnInit {
   //Update Method
   onCardClicked(item: BudgetItem){
     // Show the Edit Modal from Angular Material
-    const dialogref = this.dialog.open(EditItemModalComponent, {
+    const dialogref = this.dialog.open(EditItemModalComponentComponent, {
       width: '580px',
       data: item
     })
 
     // Handle the dialog box after the user clicks away
-    dialogref.afterClosed().subscribe(result => {
+    dialogref.afterClosed().subscribe((result: any) => {
       if(result){
         this.update.emit({
           old:item,

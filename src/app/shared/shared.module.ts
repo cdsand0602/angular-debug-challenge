@@ -35,7 +35,7 @@ import { ShellComponent } from './shell/shell.component';
 import { RouterModule } from '@angular/router';
 
 const modules = [
-  MatCheckboxModule,
+    MatCheckboxModule,
     MatCheckboxModule,
     MatButtonModule,
     MatInputModule,
@@ -71,7 +71,7 @@ const modules = [
 ]
 
 const components = [
-  ShellComponentsss
+  ShellComponent
 ]
 
 
@@ -83,7 +83,7 @@ const components = [
     ...modules
   ],
   exports:[
-
+    ...modules,
     ...components
   ]
 })

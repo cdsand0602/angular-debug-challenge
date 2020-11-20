@@ -13,7 +13,7 @@ import { BudgetItemListComponent } from './budget-item-list/budget-item-list.com
 import { BudgetItemCardComponent } from './budget-item-list/budget-item-card/budget-item-card.component';
 import { AddItemFormComponent } from './add-item-form/add-item-form.component';
 import { FormsModule } from '@angular/forms';
-import { EditItemModalComponent } from './edit-item-modal/edit-item-modal.component';
+import { EditItemModalComponentComponent } from './edit-item-modal/edit-item-modal.component';
 
 @NgModule({
   declarations: [
@@ -23,14 +23,14 @@ import { EditItemModalComponent } from './edit-item-modal/edit-item-modal.compon
     BudgetItemListComponent,
     BudgetItemCardComponent,
     AddItemFormComponent,
-    EditItemModalComponent
+    EditItemModalComponentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
